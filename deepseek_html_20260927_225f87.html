@@ -1,0 +1,2242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inglês no ENEM — Aulas 1 a 8 (um slide por página)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(160deg, #eef3fb 0%, #dbe6f5 100%);
+    min-height: 100vh;
+    color: #1a2639;
+    padding: 1.5rem 1rem 6rem;
+  }
+
+  .app { max-width: 900px; margin: 0 auto; }
+
+  /* Barra de progresso fixa */
+  .progress-wrap {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: #cfdcf0;
+    z-index: 100;
+  }
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #1e4a7a, #3a7bd5, #6aa5e8);
+    transition: width 0.15s linear;
+  }
+
+  /* Cabeçalho fixo */
+  .topbar {
+    position: sticky;
+    top: 0.6rem;
+    z-index: 50;
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(196,214,236,0.8);
+    border-radius: 60px;
+    padding: 0.55rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 10px 30px -12px rgba(20,70,130,0.3);
+    flex-wrap: wrap;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 800;
+    color: #0b2b4e;
+    font-size: 0.92rem;
+  }
+  .brand .logo {
+    background: linear-gradient(135deg, #1e4a7a, #3a7bd5);
+    color: #fff;
+    width: 32px; height: 32px;
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.95rem;
+  }
+  .counter {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #1e4a7a;
+    background: #dcebfb;
+    padding: 0.32rem 0.85rem;
+    border-radius: 30px;
+  }
+
+  /* Slide */
+  .slide {
+    background: #ffffff;
+    border-radius: 2rem;
+    padding: 2.2rem 2.4rem;
+    margin-bottom: 1.6rem;
+    box-shadow: 0 20px 40px -18px rgba(0,20,50,0.25), 0 6px 16px -8px rgba(0,20,40,0.1);
+    border: 1px solid rgba(255,255,255,0.7);
+    scroll-margin-top: 90px;
+    animation: fadeUp 0.5s ease both;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .slide-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #3a7bd5;
+    background: #eaf2fd;
+    padding: 0.22rem 0.7rem;
+    border-radius: 20px;
+    margin-bottom: 0.9rem;
+    align-self: flex-start;
+  }
+
+  .slide-title {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.3rem;
+    border-bottom: 3px solid #2b4c7c;
+    padding-bottom: 0.8rem;
+  }
+  .slide-title .icon { font-size: 1.9rem; line-height: 1; }
+  .slide-title h2 {
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #0b2b4e;
+  }
+  .slide-title h2 span {
+    background: linear-gradient(135deg, #0b2b4e, #2b5a8c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Blocos */
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #1e4a7a;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0 0.55rem;
+  }
+  .section-label::before {
+    content: "";
+    width: 5px; height: 15px;
+    background: #1e4a7a;
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  .lead {
+    font-size: 1.08rem;
+    line-height: 1.6;
+    color: #1e3349;
+    font-weight: 500;
+  }
+  .lead strong {
+    font-weight: 800;
+    color: #0d3d6b;
+    background: linear-gradient(120deg, #d4e2fc 0%, #d4e2fc 40%, transparent 80%);
+    padding: 0.06rem 0.28rem;
+    border-radius: 6px;
+  }
+
+  ul.plain { list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+  ul.plain li {
+    font-size: 1.03rem;
+    line-height: 1.55;
+    color: #1e3349;
+    padding-left: 1.3rem;
+    position: relative;
+  }
+  ul.plain li::before {
+    content: "•";
+    position: absolute;
+    left: 0.2rem;
+    color: #3a7bd5;
+    font-weight: 800;
+  }
+
+  .quote-box {
+    background: #f4f9ff;
+    border-left: 8px solid #3a7bd5;
+    border-radius: 1rem;
+    padding: 1.1rem 1.4rem;
+    font-size: 1.04rem;
+    line-height: 1.6;
+    color: #1e3349;
+    font-style: italic;
+  }
+  .quote-box strong { font-style: normal; color: #0d3d6b; }
+
+  .text-box {
+    background: #fffaf0;
+    border: 2px dashed #e6b85c;
+    border-radius: 1.2rem;
+    padding: 1.2rem 1.5rem;
+    margin-top: 0.3rem;
+  }
+  .text-box .text-title {
+    font-weight: 800;
+    color: #8a5a00;
+    font-size: 0.98rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .text-box p {
+    font-size: 1.06rem;
+    line-height: 1.7;
+    color: #3b3020;
+  }
+  .text-box em { color: #8a5a00; font-weight: 700; font-style: normal; }
+
+  /* Questão (sem destaque) */
+  .question-box {
+    background: #f9fcff;
+    border: 1px solid #deeaf8;
+    border-radius: 1.2rem;
+    padding: 1.3rem 1.5rem;
+    margin-top: 0.3rem;
+  }
+  .question-box .q-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #1e4a7a;
+    background: #dcebfb;
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    margin-bottom: 0.6rem;
+  }
+  .question-box .q-stem {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: #143450;
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+  }
+  .options { list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.45rem; }
+  .options li {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #2c4056;
+    padding: 0.55rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid #e6eef8;
+    background: #ffffff;
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  .options li .letter {
+    font-weight: 800;
+    color: #1e4a7a;
+    flex-shrink: 0;
+  }
+
+  /* Resposta (slide separado) */
+  .answer-box {
+    background: #eefaf1;
+    border: 1px solid #a8dfba;
+    border-radius: 1.2rem;
+    padding: 1.4rem 1.6rem;
+    margin-top: 0.4rem;
+  }
+  .answer-box .a-header {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #14532d;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .answer-box .a-correct {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #14532d;
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .answer-box .a-correct .badge {
+    background: #14532d;
+    color: #fff;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+  .answer-box .a-justify {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #1c3a2a;
+    background: #ffffff;
+    border-radius: 0.9rem;
+    padding: 1rem 1.2rem;
+    border: 1px dashed #a8dfba;
+  }
+  .answer-box .a-justify strong { color: #14532d; }
+
+  /* Slide de resposta — cor diferente */
+  .slide.answer-slide {
+    background: linear-gradient(180deg, #f6fdf9 0%, #ffffff 100%);
+    border: 1px solid #b7e3c6;
+  }
+  .slide.answer-slide .slide-tag {
+    background: #d6f2e0;
+    color: #14532d;
+  }
+  .slide.answer-slide .slide-title { border-bottom-color: #2e7d4f; }
+  .slide.answer-slide .slide-title h2 { color: #14532d; }
+
+  /* Dinâmica */
+  .dynamics {
+    background: #fdf2f8;
+    border: 1px solid #f3c6dd;
+    border-radius: 1.2rem;
+    padding: 1.2rem 1.5rem;
+    margin-top: 0.4rem;
+  }
+  .dynamics h4 {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #9d174d;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.6rem;
+  }
+  .dynamics ol {
+    list-style: none;
+    counter-reset: dyn;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .dynamics ol li {
+    font-size: 1rem;
+    line-height: 1.55;
+    color: #4a1d33;
+    padding-left: 2rem;
+    position: relative;
+    counter-increment: dyn;
+  }
+  .dynamics ol li::before {
+    content: counter(dyn);
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    background: #9d174d;
+    color: #fff;
+    width: 1.4rem; height: 1.4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.7rem; }
+  .chip {
+    background: #1e4a7a;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.92rem;
+    padding: 0.45rem 0.95rem;
+    border-radius: 40px;
+  }
+  .chip.false { background: #c2410c; }
+
+  /* Divisor de aula */
+  .lesson-divider {
+    text-align: center;
+    margin: 2.5rem 0 1rem;
+    scroll-margin-top: 90px;
+  }
+  .lesson-divider span {
+    display: inline-block;
+    background: linear-gradient(135deg, #1e4a7a, #3a7bd5);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
+    padding: 0.7rem 2rem;
+    border-radius: 60px;
+    box-shadow: 0 12px 24px -10px rgba(20,70,130,0.6);
+  }
+
+  /* Botão topo */
+  .back-top {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: #1e4a7a;
+    color: #fff;
+    border: none;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    cursor: pointer;
+    box-shadow: 0 10px 24px -8px rgba(20,70,130,0.7);
+    z-index: 60;
+    transition: transform 0.2s ease;
+  }
+  .back-top:hover { transform: translateY(-3px) scale(1.05); }
+
+  /* Responsivo */
+  @media (max-width: 640px) {
+    body { padding: 1rem 0.6rem 5rem; }
+    .slide { padding: 1.4rem 1.1rem; border-radius: 1.4rem; min-height: auto; }
+    .slide-title h2 { font-size: 1.15rem; }
+    .lead { font-size: 0.98rem; }
+    .question-box .q-stem { font-size: 1rem; }
+    .options li { font-size: 0.94rem; }
+    .text-box p { font-size: 0.98rem; }
+    .brand span { display: none; }
+    .answer-box .a-correct { font-size: 1.1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-wrap"><div class="progress-fill" id="progressFill"></div></div>
+
+<div class="app">
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">EN</div>
+      <span>Inglês no ENEM • Aulas 1–8</span>
+    </div>
+    <div class="counter" id="slideCounter">Slide 1</div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- AULA 1 -->
+  <!-- ============================================================ -->
+  <div class="lesson-divider" id="aula1"><span>📘 Aula 1 — Inglês no ENEM + Diagnóstico</span></div>
+
+  <!-- A1 - Slide 1 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 1 • Slide 1</span>
+    <div class="slide-title">
+      <div class="icon">🎯</div>
+      <h2>Objetivo da <span>Aula 1</span></h2>
+    </div>
+    <ul class="plain">
+      <li>Mostrar estratégias práticas para interpretar textos em inglês no ENEM.</li>
+      <li>Diagnosticar o nível da turma com exercícios iniciais.</li>
+      <li>Trabalhar identificação de tema e propósito comunicativo.</li>
+    </ul>
+  </div>
+
+  <!-- A1 - Slide 2 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 1 • Slide 2</span>
+    <div class="slide-title">
+      <div class="icon">📚</div>
+      <h2>Texto para o <span>quadro</span></h2>
+    </div>
+    <div class="quote-box">
+      "No ENEM, a prova de inglês não avalia gramática isolada. O foco é compreensão de texto.
+      O segredo é identificar tema central, propósito comunicativo e palavras-chave.
+      Hoje vamos treinar isso com um texto realista e questões estilo ENEM."
+    </div>
+  </div>
+
+  <!-- A1 - Slide 3 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 1 • Slide 3</span>
+    <div class="slide-title">
+      <div class="icon">📖</div>
+      <h2>Texto em inglês — <span>The Power of Reading</span></h2>
+    </div>
+    <div class="text-box">
+      <span class="text-title">The Power of Reading</span>
+      <p>
+        Reading is more than a school activity. It is a way to connect with different cultures,
+        ideas, and perspectives. When students read regularly, they not only improve their vocabulary
+        but also develop empathy and critical thinking. In a world full of fast information,
+        reading remains a powerful tool to <em>slow down</em>, reflect, and grow.
+      </p>
+    </div>
+  </div>
+
+  <!-- A1 - Slide 4 (Q1 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 1 • Slide 4</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 1 — <span>Identificação de tema</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">The Power of Reading</span>
+      <p>
+        Reading is more than a school activity. It is a way to connect with different cultures,
+        ideas, and perspectives. When students read regularly, they not only improve their vocabulary
+        but also develop empathy and critical thinking. In a world full of fast information,
+        reading remains a powerful tool to <em>slow down</em>, reflect, and grow.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Tema central</span>
+      <p class="q-stem">O texto trata principalmente de:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> A importância da leitura para o desenvolvimento pessoal.</li>
+        <li><span class="letter">b)</span> A necessidade de estudar gramática para aprender inglês.</li>
+        <li><span class="letter">c)</span> O impacto da tecnologia na educação.</li>
+        <li><span class="letter">d)</span> A relação entre leitura e velocidade da informação.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A1 - Slide 5 (Q1 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 1 • Slide 5 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 1</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">A</span> Alternativa a)</div>
+      <p class="a-justify">
+        O texto enfatiza a leitura como ferramenta de <strong>desenvolvimento pessoal</strong>,
+        mencionando benefícios como vocabulário, empatia e pensamento crítico. As demais alternativas
+        tratam de temas que não são o foco principal: gramática (b), tecnologia (c) e velocidade
+        da informação (d).
+      </p>
+    </div>
+  </div>
+
+  <!-- A1 - Slide 6 (Q2 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 1 • Slide 6</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 2 — <span>Propósito comunicativo</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">The Power of Reading</span>
+      <p>
+        Reading is more than a school activity. It is a way to connect with different cultures,
+        ideas, and perspectives. When students read regularly, they not only improve their vocabulary
+        but also develop empathy and critical thinking. In a world full of fast information,
+        reading remains a powerful tool to <em>slow down</em>, reflect, and grow.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Propósito</span>
+      <p class="q-stem">O autor do texto busca:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> Convencer o leitor a abandonar a leitura tradicional.</li>
+        <li><span class="letter">b)</span> Informar sobre os benefícios da leitura.</li>
+        <li><span class="letter">c)</span> Criticar o excesso de informação digital.</li>
+        <li><span class="letter">d)</span> Explicar como funciona o ensino de inglês.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A1 - Slide 7 (Q2 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 1 • Slide 7 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 2</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">B</span> Alternativa b)</div>
+      <p class="a-justify">
+        O autor apresenta os benefícios da leitura de forma <strong>informativa</strong>, sem tentar
+        convencer a abandonar nada (a), sem criticar a tecnologia (c) e sem explicar métodos de
+        ensino (d). O tom é expositivo sobre os ganhos da leitura.
+      </p>
+    </div>
+  </div>
+
+  <!-- A1 - Slide 8 (Q3 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 1 • Slide 8</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 3 — <span>Vocabulário contextualizado</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">The Power of Reading</span>
+      <p>
+        Reading is more than a school activity. It is a way to connect with different cultures,
+        ideas, and perspectives. When students read regularly, they not only improve their vocabulary
+        but also develop empathy and critical thinking. In a world full of fast information,
+        reading remains a powerful tool to <em>slow down</em>, reflect, and grow.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Vocabulário</span>
+      <p class="q-stem">No trecho "Reading remains a powerful tool to slow down, reflect, and grow", a expressão "slow down" significa:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> Acelerar o processo de leitura.</li>
+        <li><span class="letter">b)</span> Diminuir o ritmo para refletir.</li>
+        <li><span class="letter">c)</span> Esquecer o hábito de ler.</li>
+        <li><span class="letter">d)</span> Crescer rapidamente.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A1 - Slide 9 (Q3 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 1 • Slide 9 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 3</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">B</span> Alternativa b)</div>
+      <p class="a-justify">
+        "Slow down" significa <strong>reduzir o ritmo</strong>. No contexto, a leitura é apresentada
+        como uma ferramenta para desacelerar, refletir e crescer — o oposto de acelerar (a) ou
+        crescer rapidamente (d).
+      </p>
+    </div>
+  </div>
+
+  <!-- A1 - Slide 10 (Dinâmica) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 1 • Slide 10</span>
+    <div class="slide-title">
+      <div class="icon">🎲</div>
+      <h2>Dinâmica <span>diagnóstica</span></h2>
+    </div>
+    <div class="dynamics">
+      <h4>Atividade em duplas</h4>
+      <ol>
+        <li>Dividir a turma em duplas.</li>
+        <li>Cada dupla deve resumir o texto "The Power of Reading" em uma frase em português.</li>
+        <li>Depois, compartilhar com a turma e comparar as ideias centrais.</li>
+        <li>O professor destaca como diferentes leituras chegam ao mesmo núcleo temático.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- AULA 2 -->
+  <!-- ============================================================ -->
+  <div class="lesson-divider" id="aula2"><span>🔎 Aula 2 — Skimming + Scanning</span></div>
+
+  <!-- A2 - Slide 1 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 2 • Slide 1</span>
+    <div class="slide-title">
+      <div class="icon">🎯</div>
+      <h2>Objetivo da <span>Aula 2</span></h2>
+    </div>
+    <ul class="plain">
+      <li>Ensinar técnicas de leitura rápida (skimming) e de localização de informações específicas (scanning).</li>
+      <li>Treinar a habilidade de encontrar dados relevantes em textos sem traduzir palavra por palavra.</li>
+    </ul>
+  </div>
+
+  <!-- A2 - Slide 2 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 2 • Slide 2</span>
+    <div class="slide-title">
+      <div class="icon">📚</div>
+      <h2>Texto para o <span>quadro</span></h2>
+    </div>
+    <div class="quote-box">
+      "No ENEM, você não tem tempo para traduzir tudo. Use <strong>skimming</strong> para captar a ideia geral
+      e <strong>scanning</strong> para localizar informações específicas. Hoje vamos praticar essas duas
+      estratégias com um texto curto e questões."
+    </div>
+  </div>
+
+  <!-- A2 - Slide 3 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 2 • Slide 3</span>
+    <div class="slide-title">
+      <div class="icon">📖</div>
+      <h2>Texto em inglês — <span>Technology in Education</span></h2>
+    </div>
+    <div class="text-box">
+      <span class="text-title">Technology in Education</span>
+      <p>
+        Digital tools are transforming classrooms. Teachers use <em>online platforms</em> to share
+        materials, while students access videos and interactive exercises. Although technology cannot
+        replace human interaction, it helps personalize learning and makes education more accessible.
+      </p>
+    </div>
+  </div>
+
+  <!-- A2 - Slide 4 (Q1 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 2 • Slide 4</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 1 — <span>Skimming (ideia geral)</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Technology in Education</span>
+      <p>
+        Digital tools are transforming classrooms. Teachers use <em>online platforms</em> to share
+        materials, while students access videos and interactive exercises. Although technology cannot
+        replace human interaction, it helps personalize learning and makes education more accessible.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Skimming</span>
+      <p class="q-stem">Ao aplicar a técnica de skimming, o leitor identifica que o texto trata de:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> O impacto da tecnologia na educação.</li>
+        <li><span class="letter">b)</span> A substituição dos professores por computadores.</li>
+        <li><span class="letter">c)</span> A importância dos vídeos na sala de aula.</li>
+        <li><span class="letter">d)</span> A crítica ao uso de plataformas digitais.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A2 - Slide 5 (Q1 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 2 • Slide 5 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 1</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">A</span> Alternativa a)</div>
+      <p class="a-justify">
+        Com skimming, captamos a ideia geral: o texto fala sobre como a <strong>tecnologia está
+        transformando a educação</strong>. As alternativas b, c e d trazem recortes ou distorções
+        que não representam o tema central.
+      </p>
+    </div>
+  </div>
+
+  <!-- A2 - Slide 6 (Q2 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 2 • Slide 6</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 2 — <span>Scanning (localização)</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Technology in Education</span>
+      <p>
+        Digital tools are transforming classrooms. Teachers use <em>online platforms</em> to share
+        materials, while students access videos and interactive exercises. Although technology cannot
+        replace human interaction, it helps personalize learning and makes education more accessible.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Scanning</span>
+      <p class="q-stem">Segundo o texto, qual recurso os professores utilizam para compartilhar materiais?</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> Exercícios interativos.</li>
+        <li><span class="letter">b)</span> Plataformas online.</li>
+        <li><span class="letter">c)</span> Vídeos educativos.</li>
+        <li><span class="letter">d)</span> Ferramentas de personalização.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A2 - Slide 7 (Q2 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 2 • Slide 7 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 2</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">B</span> Alternativa b)</div>
+      <p class="a-justify">
+        Aplicando scanning, localizamos a informação exata no texto: "Teachers use <strong>online
+        platforms</strong> to share materials". As demais alternativas mencionam outros elementos
+        (exercícios, vídeos, personalização) que não respondem diretamente à pergunta.
+      </p>
+    </div>
+  </div>
+
+  <!-- A2 - Slide 8 (Q3 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 2 • Slide 8</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 3 — <span>Scanning (detalhe específico)</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Technology in Education</span>
+      <p>
+        Digital tools are transforming classrooms. Teachers use <em>online platforms</em> to share
+        materials, while students access videos and interactive exercises. Although technology cannot
+        replace human interaction, it helps personalize learning and makes education more accessible.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Scanning</span>
+      <p class="q-stem">De acordo com o texto, a tecnologia na educação:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> Elimina a necessidade de interação humana.</li>
+        <li><span class="letter">b)</span> Dificulta o acesso ao conhecimento.</li>
+        <li><span class="letter">c)</span> Personaliza a aprendizagem e amplia o acesso.</li>
+        <li><span class="letter">d)</span> Substitui completamente os métodos tradicionais.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A2 - Slide 9 (Q3 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 2 • Slide 9 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 3</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">C</span> Alternativa c)</div>
+      <p class="a-justify">
+        O texto afirma: "it helps <strong>personalize learning</strong> and makes education
+        <strong>more accessible</strong>". As alternativas a, b e d contradizem o texto — ele diz
+        que a tecnologia NÃO substitui a interação humana e NÃO dificulta o acesso.
+      </p>
+    </div>
+  </div>
+
+  <!-- A2 - Slide 10 (Dinâmica) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 2 • Slide 10</span>
+    <div class="slide-title">
+      <div class="icon">🎲</div>
+      <h2>Dinâmica <span>prática</span></h2>
+    </div>
+    <div class="dynamics">
+      <h4>Atividade em grupos</h4>
+      <ol>
+        <li>Dividir a turma em grupos.</li>
+        <li>Cada grupo recebe um texto curto diferente (tirinha, notícia ou infográfico).</li>
+        <li>Grupo A aplica skimming e resume em uma frase.</li>
+        <li>Grupo B aplica scanning e responde a uma pergunta específica.</li>
+        <li>Depois, os grupos trocam textos e refazem o exercício.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- AULA 3 -->
+  <!-- ============================================================ -->
+  <div class="lesson-divider" id="aula3"><span>🧩 Aula 3 — Anatomia da questão ENEM</span></div>
+
+  <!-- A3 - Slide 1 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 3 • Slide 1</span>
+    <div class="slide-title">
+      <div class="icon">🎯</div>
+      <h2>Objetivo da <span>Aula 3</span></h2>
+    </div>
+    <ul class="plain">
+      <li>Mostrar como as questões de inglês no ENEM são estruturadas.</li>
+      <li>Ensinar a identificar distratores (alternativas erradas mas plausíveis).</li>
+      <li>Treinar a leitura crítica para escolher a resposta correta com segurança.</li>
+    </ul>
+  </div>
+
+  <!-- A3 - Slide 2 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 3 • Slide 2</span>
+    <div class="slide-title">
+      <div class="icon">📚</div>
+      <h2>Texto para o <span>quadro</span></h2>
+    </div>
+    <div class="quote-box">
+      "Cada questão do ENEM tem uma ideia central e alternativas que parecem corretas, mas não são.
+      O segredo é: ler o enunciado com atenção, identificar o que realmente está sendo pedido
+      e <strong>eliminar os distratores</strong>. Hoje vamos dissecar uma questão como se fosse uma 'autópsia'."
+    </div>
+  </div>
+
+  <!-- A3 - Slide 3 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 3 • Slide 3</span>
+    <div class="slide-title">
+      <div class="icon">📖</div>
+      <h2>Texto em inglês — <span>Social Media and Youth</span></h2>
+    </div>
+    <div class="text-box">
+      <span class="text-title">Social Media and Youth</span>
+      <p>
+        Social media platforms allow young people to connect instantly. They share experiences,
+        ideas, and emotions across borders. However, excessive use can lead to anxiety and distraction.
+        <em>Balance is essential</em> to enjoy the benefits without harming mental health.
+      </p>
+    </div>
+  </div>
+
+  <!-- A3 - Slide 4 (Q1 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 3 • Slide 4</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 1 — <span>Ideia central</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Social Media and Youth</span>
+      <p>
+        Social media platforms allow young people to connect instantly. They share experiences,
+        ideas, and emotions across borders. However, excessive use can lead to anxiety and distraction.
+        <em>Balance is essential</em> to enjoy the benefits without harming mental health.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Ideia central</span>
+      <p class="q-stem">O texto aborda principalmente:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> O impacto positivo das redes sociais na educação.</li>
+        <li><span class="letter">b)</span> A importância de equilibrar o uso das redes sociais.</li>
+        <li><span class="letter">c)</span> A substituição da comunicação presencial pelas redes sociais.</li>
+        <li><span class="letter">d)</span> A necessidade de proibir o uso das redes sociais.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A3 - Slide 5 (Q1 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 3 • Slide 5 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 1</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">B</span> Alternativa b)</div>
+      <p class="a-justify">
+        O texto enfatiza o <strong>equilíbrio</strong>: as redes trazem benefícios, mas o uso excessivo
+        causa ansiedade. A palavra-chave é "Balance is essential". As alternativas a, c e d ou
+        distorcem o foco (educação), ou exageram (substituição, proibição).
+      </p>
+    </div>
+  </div>
+
+  <!-- A3 - Slide 6 (Q2 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 3 • Slide 6</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 2 — <span>Distratores</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Social Media and Youth</span>
+      <p>
+        Social media platforms allow young people to connect instantly. They share experiences,
+        ideas, and emotions across borders. However, excessive use can lead to anxiety and distraction.
+        <em>Balance is essential</em> to enjoy the benefits without harming mental health.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Distratores</span>
+      <p class="q-stem">Qual alternativa abaixo é um distrator (parece correta, mas não corresponde ao texto)?</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> As redes sociais permitem conexão instantânea entre jovens.</li>
+        <li><span class="letter">b)</span> O uso excessivo pode causar ansiedade e distração.</li>
+        <li><span class="letter">c)</span> O texto defende a proibição das redes sociais.</li>
+        <li><span class="letter">d)</span> O equilíbrio é essencial para aproveitar os benefícios.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A3 - Slide 7 (Q2 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 3 • Slide 7 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 2</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">C</span> Alternativa c)</div>
+      <p class="a-justify">
+        O distrator é a letra c: o texto <strong>nunca defende a proibição</strong> das redes sociais —
+        ele defende o equilíbrio. As alternativas a, b e d estão de acordo com o texto.
+      </p>
+    </div>
+  </div>
+
+  <!-- A3 - Slide 8 (Q3 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 3 • Slide 8</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 3 — <span>Estratégia de eliminação</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Social Media and Youth</span>
+      <p>
+        Social media platforms allow young people to connect instantly. They share experiences,
+        ideas, and emotions across borders. However, excessive use can lead to anxiety and distraction.
+        <em>Balance is essential</em> to enjoy the benefits without harming mental health.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Estratégia</span>
+      <p class="q-stem">Se o aluno não entendeu todas as palavras, qual técnica ajuda a eliminar distratores?</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> Traduzir palavra por palavra.</li>
+        <li><span class="letter">b)</span> Focar em cognatos e contexto.</li>
+        <li><span class="letter">c)</span> Ignorar o enunciado.</li>
+        <li><span class="letter">d)</span> Escolher a alternativa mais longa.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A3 - Slide 9 (Q3 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 3 • Slide 9 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 3</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">B</span> Alternativa b)</div>
+      <p class="a-justify">
+        Quando não se entende tudo, a melhor estratégia é <strong>usar cognatos e o contexto</strong>
+        para inferir o significado geral e eliminar alternativas que contradizem o texto.
+        Traduzir palavra por palavra (a) é inviável; ignorar o enunciado (c) e escolher a mais longa (d)
+        são práticas incorretas.
+      </p>
+    </div>
+  </div>
+
+  <!-- A3 - Slide 10 (Dinâmica) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 3 • Slide 10</span>
+    <div class="slide-title">
+      <div class="icon">🎲</div>
+      <h2>Dinâmica <span>prática</span></h2>
+    </div>
+    <div class="dynamics">
+      <h4>Atividade em grupos</h4>
+      <ol>
+        <li>O professor distribui uma questão estilo ENEM real (ou adaptada).</li>
+        <li>Em grupos, os alunos devem identificar qual alternativa é distrator e justificar.</li>
+        <li>Depois, cada grupo apresenta sua justificativa, mostrando como chegaram à resposta correta.</li>
+        <li>O professor reforça que distratores são criados para testar atenção e interpretação, não vocabulário isolado.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- AULA 4 -->
+  <!-- ============================================================ -->
+  <div class="lesson-divider" id="aula4"><span>🧠 Aula 4 — Cognatos + Falsos Cognatos</span></div>
+
+  <!-- A4 - Slide 1 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 4 • Slide 1</span>
+    <div class="slide-title">
+      <div class="icon">🎯</div>
+      <h2>Objetivo da <span>Aula 4</span></h2>
+    </div>
+    <ul class="plain">
+      <li>Ensinar a usar cognatos (palavras semelhantes em inglês e português) como apoio na leitura.</li>
+      <li>Alertar sobre falsos cognatos (palavras que parecem iguais, mas têm outro sentido).</li>
+      <li>Treinar interpretação contextualizada para evitar erros comuns.</li>
+    </ul>
+  </div>
+
+  <!-- A4 - Slide 2 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 4 • Slide 2</span>
+    <div class="slide-title">
+      <div class="icon">📚</div>
+      <h2>Texto para o <span>quadro</span></h2>
+    </div>
+    <div class="quote-box">
+      "Os cognatos ajudam muito na leitura do ENEM, mas cuidado: alguns são falsos cognatos.
+      Exemplo: <strong>actual</strong> não significa 'atual', mas sim 'real'.
+      O segredo é sempre verificar o contexto da frase."
+    </div>
+  </div>
+
+  <!-- A4 - Slide 3 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 4 • Slide 3</span>
+    <div class="slide-title">
+      <div class="icon">📖</div>
+      <h2>Texto em inglês — <span>The Importance of Context</span></h2>
+    </div>
+    <div class="text-box">
+      <span class="text-title">The Importance of Context</span>
+      <p>
+        Many <em>students</em> believe that recognizing familiar words is enough to understand a text.
+        However, false cognates can be tricky. For example, the word <em>pretend</em> does not mean
+        "pretender" in Portuguese; it means <em>to act as if</em>. That is why context is essential:
+        it shows the real meaning of words and prevents misunderstandings.
+      </p>
+    </div>
+  </div>
+
+  <!-- A4 - Slide 4 (Q1 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 4 • Slide 4</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 1 — <span>Cognatos verdadeiros</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">The Importance of Context</span>
+      <p>
+        Many <em>students</em> believe that recognizing familiar words is enough to understand a text.
+        However, false cognates can be tricky. For example, the word <em>pretend</em> does not mean
+        "pretender" in Portuguese; it means <em>to act as if</em>. That is why context is essential:
+        it shows the real meaning of words and prevents misunderstandings.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Cognatos</span>
+      <p class="q-stem">No texto, qual palavra é um cognato verdadeiro?</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> Students</li>
+        <li><span class="letter">b)</span> Pretend</li>
+        <li><span class="letter">c)</span> Enough</li>
+        <li><span class="letter">d)</span> Tricky</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A4 - Slide 5 (Q1 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 4 • Slide 5 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 1</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">A</span> Alternativa a)</div>
+      <p class="a-justify">
+        "<strong>Students</strong>" é cognato verdadeiro: em inglês significa "estudantes" e tem
+        forma e sentido semelhantes ao português. "Pretend" é falso cognato (fingir), "enough"
+        (suficiente) e "tricky" (traiçoeiro) não são cognatos.
+      </p>
+    </div>
+  </div>
+
+  <!-- A4 - Slide 6 (Q2 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 4 • Slide 6</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 2 — <span>Falsos cognatos</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">The Importance of Context</span>
+      <p>
+        Many <em>students</em> believe that recognizing familiar words is enough to understand a text.
+        However, false cognates can be tricky. For example, the word <em>pretend</em> does not mean
+        "pretender" in Portuguese; it means <em>to act as if</em>. That is why context is essential:
+        it shows the real meaning of words and prevents misunderstandings.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Falsos cognatos</span>
+      <p class="q-stem">A palavra "pretend", no texto, significa:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> Planejar algo.</li>
+        <li><span class="letter">b)</span> Fingir, agir como se fosse.</li>
+        <li><span class="letter">c)</span> Pretender realizar uma ação.</li>
+        <li><span class="letter">d)</span> Desejar intensamente.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A4 - Slide 7 (Q2 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 4 • Slide 7 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 2</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">B</span> Alternativa b)</div>
+      <p class="a-justify">
+        O próprio texto explica: "the word pretend does not mean 'pretender' in Portuguese;
+        it means <strong>to act as if</strong>" — ou seja, <strong>fingir</strong>. É um clássico
+        falso cognato.
+      </p>
+    </div>
+  </div>
+
+  <!-- A4 - Slide 8 (Q3 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 4 • Slide 8</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 3 — <span>Contexto</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">The Importance of Context</span>
+      <p>
+        Many <em>students</em> believe that recognizing familiar words is enough to understand a text.
+        However, false cognates can be tricky. For example, the word <em>pretend</em> does not mean
+        "pretender" in Portuguese; it means <em>to act as if</em>. That is why context is essential:
+        it shows the real meaning of words and prevents misunderstandings.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Contexto</span>
+      <p class="q-stem">Segundo o texto, o contexto é importante porque:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> Permite traduzir palavra por palavra.</li>
+        <li><span class="letter">b)</span> Mostra o significado real das palavras.</li>
+        <li><span class="letter">c)</span> Elimina a necessidade de estudar vocabulário.</li>
+        <li><span class="letter">d)</span> Facilita decorar listas de cognatos.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A4 - Slide 9 (Q3 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 4 • Slide 9 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 3</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">B</span> Alternativa b)</div>
+      <p class="a-justify">
+        O texto afirma: "context is essential: it <strong>shows the real meaning of words</strong>
+        and prevents misunderstandings". Ou seja, o contexto revela o sentido verdadeiro.
+      </p>
+    </div>
+  </div>
+
+  <!-- A4 - Slide 10 (Dinâmica) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 4 • Slide 10</span>
+    <div class="slide-title">
+      <div class="icon">🎲</div>
+      <h2>Dinâmica <span>prática</span></h2>
+    </div>
+    <div class="dynamics">
+      <h4>Classificação de palavras</h4>
+      <ol>
+        <li>O professor escreve no quadro uma lista mista: library, costume, sensible, parents, actual.</li>
+        <li>Em grupos, os alunos classificam cada palavra como cognato verdadeiro ou falso cognato.</li>
+        <li>Justificam com exemplos em frases.</li>
+        <li>Cada grupo apresenta e o professor corrige, reforçando a importância do contexto.</li>
+      </ol>
+    </div>
+    <div class="section-label">Classificação</div>
+    <div class="chips">
+      <span class="chip false">library = biblioteca (falso)</span>
+      <span class="chip false">costume = fantasia (falso)</span>
+      <span class="chip false">sensible = sensato (falso)</span>
+      <span class="chip">parents = pais (verdadeiro)</span>
+      <span class="chip false">actual = real (falso)</span>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- AULA 5 -->
+  <!-- ============================================================ -->
+  <div class="lesson-divider" id="aula5"><span>🔗 Aula 5 — Conectores e Relações de Sentido</span></div>
+
+  <!-- A5 - Slide 1 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 5 • Slide 1</span>
+    <div class="slide-title">
+      <div class="icon">🎯</div>
+      <h2>Objetivo da <span>Aula 5</span></h2>
+    </div>
+    <ul class="plain">
+      <li>Ensinar como os conectores (linking words) organizam ideias em inglês.</li>
+      <li>Mostrar como eles indicam relações de sentido: causa, consequência, contraste, adição.</li>
+      <li>Treinar interpretação de textos com foco na coesão.</li>
+    </ul>
+  </div>
+
+  <!-- A5 - Slide 2 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 5 • Slide 2</span>
+    <div class="slide-title">
+      <div class="icon">📚</div>
+      <h2>Texto para o <span>quadro</span></h2>
+    </div>
+    <div class="quote-box">
+      "Os conectores são como pontes entre ideias. Exemplo: <strong>however</strong> indica contraste,
+      <strong>therefore</strong> indica consequência. No ENEM, entender o papel dos conectores
+      ajuda a interpretar corretamente o texto."
+    </div>
+  </div>
+
+  <!-- A5 - Slide 3 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 5 • Slide 3</span>
+    <div class="slide-title">
+      <div class="icon">📖</div>
+      <h2>Texto em inglês — <span>Learning and Effort</span></h2>
+    </div>
+    <div class="text-box">
+      <span class="text-title">Learning and Effort</span>
+      <p>
+        Learning a new language requires dedication. <em>However</em>, many students give up when they
+        face difficulties. <em>Therefore</em>, teachers encourage them to practice regularly,
+        <em>because</em> effort leads to progress. <em>In addition</em>, group activities make the
+        process more enjoyable.
+      </p>
+    </div>
+  </div>
+
+  <!-- A5 - Slide 4 (Q1 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 5 • Slide 4</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 1 — <span>Conector de contraste</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Learning and Effort</span>
+      <p>
+        Learning a new language requires dedication. <em>However</em>, many students give up when they
+        face difficulties. <em>Therefore</em>, teachers encourage them to practice regularly,
+        <em>because</em> effort leads to progress. <em>In addition</em>, group activities make the
+        process more enjoyable.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Contraste</span>
+      <p class="q-stem">No texto, o conector "however" indica:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> Adição de ideias.</li>
+        <li><span class="letter">b)</span> Contraste entre dedicação e desistência.</li>
+        <li><span class="letter">c)</span> Causa da prática regular.</li>
+        <li><span class="letter">d)</span> Consequência do esforço.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A5 - Slide 5 (Q1 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 5 • Slide 5 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 1</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">B</span> Alternativa b)</div>
+      <p class="a-justify">
+        "However" marca <strong>contraste</strong>: a primeira frase diz que aprender exige dedicação,
+        mas a segunda mostra que muitos desistem. É a oposição entre a exigência e a desistência.
+      </p>
+    </div>
+  </div>
+
+  <!-- A5 - Slide 6 (Q2 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 5 • Slide 6</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 2 — <span>Conector de consequência</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Learning and Effort</span>
+      <p>
+        Learning a new language requires dedication. <em>However</em>, many students give up when they
+        face difficulties. <em>Therefore</em>, teachers encourage them to practice regularly,
+        <em>because</em> effort leads to progress. <em>In addition</em>, group activities make the
+        process more enjoyable.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Consequência</span>
+      <p class="q-stem">O conector "therefore" estabelece relação de:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> Contraste.</li>
+        <li><span class="letter">b)</span> Explicação.</li>
+        <li><span class="letter">c)</span> Consequência.</li>
+        <li><span class="letter">d)</span> Adição.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A5 - Slide 7 (Q2 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 5 • Slide 7 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 2</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">C</span> Alternativa c)</div>
+      <p class="a-justify">
+        "Therefore" introduz uma <strong>consequência</strong>: como muitos desistem, os professores
+        os incentivam a praticar. É o resultado lógico da situação anterior.
+      </p>
+    </div>
+  </div>
+
+  <!-- A5 - Slide 8 (Q3 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 5 • Slide 8</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 3 — <span>Conector de adição</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Learning and Effort</span>
+      <p>
+        Learning a new language requires dedication. <em>However</em>, many students give up when they
+        face difficulties. <em>Therefore</em>, teachers encourage them to practice regularly,
+        <em>because</em> effort leads to progress. <em>In addition</em>, group activities make the
+        process more enjoyable.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Adição</span>
+      <p class="q-stem">O conector "in addition" significa:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> Além disso.</li>
+        <li><span class="letter">b)</span> No entanto.</li>
+        <li><span class="letter">c)</span> Por causa de.</li>
+        <li><span class="letter">d)</span> Portanto.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A5 - Slide 9 (Q3 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 5 • Slide 9 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 3</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">A</span> Alternativa a)</div>
+      <p class="a-justify">
+        "In addition" = <strong>além disso</strong>, adiciona uma nova informação: além da prática,
+        as atividades em grupo tornam o processo mais agradável.
+      </p>
+    </div>
+  </div>
+
+  <!-- A5 - Slide 10 (Dinâmica) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 5 • Slide 10</span>
+    <div class="slide-title">
+      <div class="icon">🎲</div>
+      <h2>Dinâmica <span>prática</span></h2>
+    </div>
+    <div class="dynamics">
+      <h4>Escolha de conectores</h4>
+      <ol>
+        <li>O professor distribui frases curtas sem conectores.</li>
+        <li>Em grupos, os alunos escolhem conectores adequados (because, although, therefore, in addition).</li>
+        <li>Depois, cada grupo lê suas frases e a turma discute como o sentido muda com diferentes conectores.</li>
+        <li>O professor reforça que no ENEM, interpretar conectores é chave para entender a lógica do texto.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- AULA 6 -->
+  <!-- ============================================================ -->
+  <div class="lesson-divider" id="aula6"><span>🎯 Aula 6 — Ideia Central + Propósito Comunicativo</span></div>
+
+  <!-- A6 - Slide 1 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 6 • Slide 1</span>
+    <div class="slide-title">
+      <div class="icon">🎯</div>
+      <h2>Objetivo da <span>Aula 6</span></h2>
+    </div>
+    <ul class="plain">
+      <li>Treinar a identificação da ideia central de um texto.</li>
+      <li>Reconhecer o propósito comunicativo do autor (informar, convencer, criticar, instruir).</li>
+      <li>Desenvolver leitura crítica para interpretar além das palavras.</li>
+    </ul>
+  </div>
+
+  <!-- A6 - Slide 2 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 6 • Slide 2</span>
+    <div class="slide-title">
+      <div class="icon">📚</div>
+      <h2>Texto para o <span>quadro</span></h2>
+    </div>
+    <div class="quote-box">
+      "No ENEM, muitas questões pedem a ideia central ou o propósito comunicativo.
+      A ideia central é o núcleo da mensagem. O propósito comunicativo é a intenção do autor ao escrever.
+      Hoje vamos praticar com um texto curto e direto."
+    </div>
+  </div>
+
+  <!-- A6 - Slide 3 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 6 • Slide 3</span>
+    <div class="slide-title">
+      <div class="icon">📖</div>
+      <h2>Texto em inglês — <span>Recycling Matters</span></h2>
+    </div>
+    <div class="text-box">
+      <span class="text-title">Recycling Matters</span>
+      <p>
+        Recycling is not just about reducing waste. It is a way to protect natural resources and
+        promote sustainability. When communities recycle, they show responsibility toward the planet.
+        The message is clear: <em>small actions can make a big difference</em>.
+      </p>
+    </div>
+  </div>
+
+  <!-- A6 - Slide 4 (Q1 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 6 • Slide 4</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 1 — <span>Ideia central</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Recycling Matters</span>
+      <p>
+        Recycling is not just about reducing waste. It is a way to protect natural resources and
+        promote sustainability. When communities recycle, they show responsibility toward the planet.
+        The message is clear: <em>small actions can make a big difference</em>.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Ideia central</span>
+      <p class="q-stem">O texto enfatiza principalmente:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> A dificuldade de reciclar em comunidades.</li>
+        <li><span class="letter">b)</span> A importância da reciclagem para a sustentabilidade.</li>
+        <li><span class="letter">c)</span> A crítica ao excesso de consumo.</li>
+        <li><span class="letter">d)</span> A necessidade de proibir o uso de plásticos.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A6 - Slide 5 (Q1 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 6 • Slide 5 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 1</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">B</span> Alternativa b)</div>
+      <p class="a-justify">
+        O texto destaca a reciclagem como forma de <strong>proteger recursos naturais e promover
+        sustentabilidade</strong>. As outras alternativas não correspondem ao foco (dificuldade,
+        crítica ao consumo, proibição).
+      </p>
+    </div>
+  </div>
+
+  <!-- A6 - Slide 6 (Q2 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 6 • Slide 6</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 2 — <span>Propósito comunicativo</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Recycling Matters</span>
+      <p>
+        Recycling is not just about reducing waste. It is a way to protect natural resources and
+        promote sustainability. When communities recycle, they show responsibility toward the planet.
+        The message is clear: <em>small actions can make a big difference</em>.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Propósito</span>
+      <p class="q-stem">O autor do texto busca:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> Convencer o leitor da relevância da reciclagem.</li>
+        <li><span class="letter">b)</span> Informar sobre técnicas avançadas de reciclagem.</li>
+        <li><span class="letter">c)</span> Criticar governos que não reciclam.</li>
+        <li><span class="letter">d)</span> Explicar como funciona o processo industrial.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A6 - Slide 7 (Q2 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 6 • Slide 7 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 2</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">A</span> Alternativa a)</div>
+      <p class="a-justify">
+        O tom do texto é de <strong>convencimento</strong>: ele afirma que "small actions can make a
+        big difference" e mostra a reciclagem como responsabilidade. Não é um texto técnico (b),
+        nem uma crítica a governos (c), nem explicação industrial (d).
+      </p>
+    </div>
+  </div>
+
+  <!-- A6 - Slide 8 (Q3 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 6 • Slide 8</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 3 — <span>Estratégia de leitura</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Recycling Matters</span>
+      <p>
+        Recycling is not just about reducing waste. It is a way to protect natural resources and
+        promote sustainability. When communities recycle, they show responsibility toward the planet.
+        The message is clear: <em>small actions can make a big difference</em>.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Estratégia</span>
+      <p class="q-stem">Para identificar o propósito comunicativo, o aluno deve:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> Traduzir todas as palavras.</li>
+        <li><span class="letter">b)</span> Observar o tom e a intenção do texto.</li>
+        <li><span class="letter">c)</span> Ignorar o título.</li>
+        <li><span class="letter">d)</span> Focar apenas em palavras desconhecidas.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A6 - Slide 9 (Q3 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 6 • Slide 9 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 3</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">B</span> Alternativa b)</div>
+      <p class="a-justify">
+        O <strong>tom e a intenção</strong> (convencer, informar, criticar) revelam o propósito.
+        Traduzir tudo (a) é inviável, ignorar o título (c) é um erro e focar só em palavras
+        desconhecidas (d) não ajuda a entender a intenção global.
+      </p>
+    </div>
+  </div>
+
+  <!-- A6 - Slide 10 (Dinâmica) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 6 • Slide 10</span>
+    <div class="slide-title">
+      <div class="icon">🎲</div>
+      <h2>Dinâmica <span>prática</span></h2>
+    </div>
+    <div class="dynamics">
+      <h4>Gêneros e propósitos</h4>
+      <ol>
+        <li>O professor distribui três textos curtos (notícia, propaganda e tirinha).</li>
+        <li>Em grupos, os alunos devem identificar ideia central e propósito comunicativo de cada texto.</li>
+        <li>Depois, cada grupo apresenta suas conclusões.</li>
+        <li>A turma compara como diferentes gêneros textuais têm propósitos distintos.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- AULA 7 -->
+  <!-- ============================================================ -->
+  <div class="lesson-divider" id="aula7"><span>📰 Aula 7 — Artigos e Textos Jornalísticos</span></div>
+
+  <!-- A7 - Slide 1 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 7 • Slide 1</span>
+    <div class="slide-title">
+      <div class="icon">🎯</div>
+      <h2>Objetivo da <span>Aula 7</span></h2>
+    </div>
+    <ul class="plain">
+      <li>Treinar leitura de textos jornalísticos em inglês, comuns no ENEM.</li>
+      <li>Identificar ideia central, propósito comunicativo e informações específicas.</li>
+      <li>Desenvolver estratégias de leitura crítica em textos informativos.</li>
+    </ul>
+  </div>
+
+  <!-- A7 - Slide 2 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 7 • Slide 2</span>
+    <div class="slide-title">
+      <div class="icon">📚</div>
+      <h2>Texto para o <span>quadro</span></h2>
+    </div>
+    <div class="quote-box">
+      "Os textos jornalísticos no ENEM trazem notícias, artigos e reportagens. Eles informam, mas também
+      podem opinar ou convencer. O segredo é perceber se o texto é <strong>informativo ou
+      argumentativo</strong> e localizar os dados principais."
+    </div>
+  </div>
+
+  <!-- A7 - Slide 3 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 7 • Slide 3</span>
+    <div class="slide-title">
+      <div class="icon">📖</div>
+      <h2>Texto em inglês — <span>Cities Go Green</span></h2>
+    </div>
+    <div class="text-box">
+      <span class="text-title">Cities Go Green</span>
+      <p>
+        Several cities around the world are adopting green policies to reduce pollution.
+        Public transportation is being expanded, and bike-sharing programs are becoming popular.
+        Experts say these initiatives not only improve air quality but also encourage healthier
+        lifestyles. The challenge, however, is to maintain long-term commitment from governments
+        and citizens.
+      </p>
+    </div>
+  </div>
+
+  <!-- A7 - Slide 4 (Q1 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 7 • Slide 4</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 1 — <span>Ideia central</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Cities Go Green</span>
+      <p>
+        Several cities around the world are adopting green policies to reduce pollution.
+        Public transportation is being expanded, and bike-sharing programs are becoming popular.
+        Experts say these initiatives not only improve air quality but also encourage healthier
+        lifestyles. The challenge, however, is to maintain long-term commitment from governments
+        and citizens.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Ideia central</span>
+      <p class="q-stem">O texto aborda principalmente:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> A dificuldade de manter programas de transporte público.</li>
+        <li><span class="letter">b)</span> A adoção de políticas verdes nas cidades.</li>
+        <li><span class="letter">c)</span> A crítica ao uso de bicicletas em áreas urbanas.</li>
+        <li><span class="letter">d)</span> A substituição de governos locais por especialistas.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A7 - Slide 5 (Q1 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 7 • Slide 5 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 1</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">B</span> Alternativa b)</div>
+      <p class="a-justify">
+        O texto trata da <strong>adoção de políticas verdes</strong> por várias cidades para reduzir
+        a poluição. As outras alternativas são recortes ou distorções (transporte público,
+        bicicletas, governos).
+      </p>
+    </div>
+  </div>
+
+  <!-- A7 - Slide 6 (Q2 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 7 • Slide 6</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 2 — <span>Propósito comunicativo</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Cities Go Green</span>
+      <p>
+        Several cities around the world are adopting green policies to reduce pollution.
+        Public transportation is being expanded, and bike-sharing programs are becoming popular.
+        Experts say these initiatives not only improve air quality but also encourage healthier
+        lifestyles. The challenge, however, is to maintain long-term commitment from governments
+        and citizens.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Propósito</span>
+      <p class="q-stem">O autor busca:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> Informar sobre iniciativas ambientais em cidades.</li>
+        <li><span class="letter">b)</span> Convencer o leitor a abandonar o transporte público.</li>
+        <li><span class="letter">c)</span> Criticar cidadãos que não reciclam.</li>
+        <li><span class="letter">d)</span> Explicar como funciona o processo industrial.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A7 - Slide 7 (Q2 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 7 • Slide 7 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 2</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">A</span> Alternativa a)</div>
+      <p class="a-justify">
+        O texto é <strong>informativo</strong>: apresenta iniciativas ambientais que estão sendo
+        adotadas em várias cidades, com dados e exemplos. Não tenta convencer a abandonar nada
+        (b), nem critica cidadãos (c), nem explica processos industriais (d).
+      </p>
+    </div>
+  </div>
+
+  <!-- A7 - Slide 8 (Q3 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 7 • Slide 8</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 3 — <span>Informação específica</span></h2>
+    </div>
+
+    <div class="section-label">Texto de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Cities Go Green</span>
+      <p>
+        Several cities around the world are adopting green policies to reduce pollution.
+        Public transportation is being expanded, and bike-sharing programs are becoming popular.
+        Experts say these initiatives not only improve air quality but also encourage healthier
+        lifestyles. The challenge, however, is to maintain long-term commitment from governments
+        and citizens.
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Informação específica</span>
+      <p class="q-stem">Segundo o texto, qual benefício é associado às políticas verdes?</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> Aumento da poluição.</li>
+        <li><span class="letter">b)</span> Melhoria da qualidade do ar e hábitos saudáveis.</li>
+        <li><span class="letter">c)</span> Redução da prática de esportes.</li>
+        <li><span class="letter">d)</span> Substituição de governos por especialistas.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A7 - Slide 9 (Q3 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 7 • Slide 9 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 3</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">B</span> Alternativa b)</div>
+      <p class="a-justify">
+        O texto afirma: "these initiatives not only <strong>improve air quality</strong> but also
+        <strong>encourage healthier lifestyles</strong>". As demais alternativas contradizem ou
+        distorcem o texto.
+      </p>
+    </div>
+  </div>
+
+  <!-- A7 - Slide 10 (Dinâmica) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 7 • Slide 10</span>
+    <div class="slide-title">
+      <div class="icon">🎲</div>
+      <h2>Dinâmica <span>prática</span></h2>
+    </div>
+    <div class="dynamics">
+      <h4>Análise de notícias</h4>
+      <ol>
+        <li>O professor distribui recortes de notícias em inglês (curtas).</li>
+        <li>Em grupos, os alunos devem identificar: ideia central, propósito comunicativo e uma informação específica.</li>
+        <li>Depois, cada grupo apresenta suas conclusões.</li>
+        <li>A turma compara como diferentes notícias podem ter tons informativos ou opinativos.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- AULA 8 -->
+  <!-- ============================================================ -->
+  <div class="lesson-divider" id="aula8"><span>😂 Aula 8 — Tirinhas + Charges</span></div>
+
+  <!-- A8 - Slide 1 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 8 • Slide 1</span>
+    <div class="slide-title">
+      <div class="icon">🎯</div>
+      <h2>Objetivo da <span>Aula 8</span></h2>
+    </div>
+    <ul class="plain">
+      <li>Treinar interpretação multissemiótica (texto + imagem).</li>
+      <li>Identificar humor, crítica social e ironia em tirinhas e charges.</li>
+      <li>Relacionar elementos visuais e verbais para compreender o sentido global.</li>
+    </ul>
+  </div>
+
+  <!-- A8 - Slide 2 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 8 • Slide 2</span>
+    <div class="slide-title">
+      <div class="icon">📚</div>
+      <h2>Texto para o <span>quadro</span></h2>
+    </div>
+    <div class="quote-box">
+      "No ENEM, tirinhas e charges aparecem para avaliar se o aluno consegue interpretar texto e imagem
+      juntos. O segredo é observar: <strong>elementos visuais</strong> (expressões, cenário, símbolos),
+      <strong>elementos verbais</strong> (falas, legendas, títulos) e o <strong>efeito de humor ou
+      crítica</strong> gerado pela combinação."
+    </div>
+  </div>
+
+  <!-- A8 - Slide 3 -->
+  <div class="slide">
+    <span class="slide-tag">Aula 8 • Slide 3</span>
+    <div class="slide-title">
+      <div class="icon">📖</div>
+      <h2>Tirinha em inglês — <span>Comic Strip</span></h2>
+    </div>
+    <div class="text-box">
+      <span class="text-title">Comic Strip (adaptada)</span>
+      <p>
+        <strong>Frame 1:</strong> Student says: <em>"I studied all night for the test."</em><br><br>
+        <strong>Frame 2:</strong> Teacher says: <em>"Good! The test is tomorrow."</em><br><br>
+        <strong>Frame 3:</strong> Student reacts: <em>"Tomorrow? I thought it was today!"</em>
+      </p>
+    </div>
+  </div>
+
+  <!-- A8 - Slide 4 (Q1 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 8 • Slide 4</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 1 — <span>Ideia central da tirinha</span></h2>
+    </div>
+
+    <div class="section-label">Tirinha de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Comic Strip (adaptada)</span>
+      <p>
+        <strong>Frame 1:</strong> Student says: <em>"I studied all night for the test."</em><br><br>
+        <strong>Frame 2:</strong> Teacher says: <em>"Good! The test is tomorrow."</em><br><br>
+        <strong>Frame 3:</strong> Student reacts: <em>"Tomorrow? I thought it was today!"</em>
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Ideia central</span>
+      <p class="q-stem">A situação retratada mostra:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> O esforço do estudante em se preparar corretamente.</li>
+        <li><span class="letter">b)</span> A confusão do estudante sobre a data da prova.</li>
+        <li><span class="letter">c)</span> A crítica ao excesso de estudo noturno.</li>
+        <li><span class="letter">d)</span> A importância do professor em motivar os alunos.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A8 - Slide 5 (Q1 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 8 • Slide 5 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 1</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">B</span> Alternativa b)</div>
+      <p class="a-justify">
+        O estudante estudou a noite toda achando que a prova era hoje, mas o professor revela que
+        é amanhã. O foco é a <strong>confusão sobre a data</strong>, que gera o humor.
+      </p>
+    </div>
+  </div>
+
+  <!-- A8 - Slide 6 (Q2 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 8 • Slide 6</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 2 — <span>Humor</span></h2>
+    </div>
+
+    <div class="section-label">Tirinha de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Comic Strip (adaptada)</span>
+      <p>
+        <strong>Frame 1:</strong> Student says: <em>"I studied all night for the test."</em><br><br>
+        <strong>Frame 2:</strong> Teacher says: <em>"Good! The test is tomorrow."</em><br><br>
+        <strong>Frame 3:</strong> Student reacts: <em>"Tomorrow? I thought it was today!"</em>
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Humor</span>
+      <p class="q-stem">O efeito de humor na tirinha decorre de:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> O exagero no esforço do estudante.</li>
+        <li><span class="letter">b)</span> A surpresa causada pelo erro de interpretação da data.</li>
+        <li><span class="letter">c)</span> A crítica ao sistema educacional.</li>
+        <li><span class="letter">d)</span> A ironia sobre o papel do professor.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A8 - Slide 7 (Q2 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 8 • Slide 7 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 2</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">B</span> Alternativa b)</div>
+      <p class="a-justify">
+        O humor vem da <strong>quebra de expectativa</strong>: o aluno estudou a noite toda,
+        mas descobriu que a prova é amanhã — a surpresa e o erro de interpretação geram o riso.
+      </p>
+    </div>
+  </div>
+
+  <!-- A8 - Slide 8 (Q3 pergunta) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 8 • Slide 8</span>
+    <div class="slide-title">
+      <div class="icon">📝</div>
+      <h2>Questão 3 — <span>Multissemiótica</span></h2>
+    </div>
+
+    <div class="section-label">Tirinha de apoio</div>
+    <div class="text-box">
+      <span class="text-title">Comic Strip (adaptada)</span>
+      <p>
+        <strong>Frame 1:</strong> Student says: <em>"I studied all night for the test."</em><br><br>
+        <strong>Frame 2:</strong> Teacher says: <em>"Good! The test is tomorrow."</em><br><br>
+        <strong>Frame 3:</strong> Student reacts: <em>"Tomorrow? I thought it was today!"</em>
+      </p>
+    </div>
+
+    <div class="section-label">Pergunta</div>
+    <div class="question-box">
+      <span class="q-tag">Multissemiótica</span>
+      <p class="q-stem">A interpretação da tirinha depende de:</p>
+      <ul class="options">
+        <li><span class="letter">a)</span> Apenas das falas escritas.</li>
+        <li><span class="letter">b)</span> Apenas das imagens.</li>
+        <li><span class="letter">c)</span> Da combinação entre texto e imagem.</li>
+        <li><span class="letter">d)</span> Da tradução literal das palavras.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- A8 - Slide 9 (Q3 resposta) -->
+  <div class="slide answer-slide">
+    <span class="slide-tag">Aula 8 • Slide 9 — Resposta</span>
+    <div class="slide-title">
+      <div class="icon">✅</div>
+      <h2>Resposta da <span>Questão 3</span></h2>
+    </div>
+    <div class="answer-box">
+      <div class="a-header">✅ Resposta correta e justificativa</div>
+      <div class="a-correct"><span class="badge">C</span> Alternativa c)</div>
+      <p class="a-justify">
+        É a <strong>junção de texto e imagem</strong> que constrói o sentido completo. As falas
+        sozinhas ou as imagens sozinhas não dariam o efeito cômico; é a relação entre elas que
+        gera a interpretação.
+      </p>
+    </div>
+  </div>
+
+  <!-- A8 - Slide 10 (Dinâmica) -->
+  <div class="slide">
+    <span class="slide-tag">Aula 8 • Slide 10</span>
+    <div class="slide-title">
+      <div class="icon">🎲</div>
+      <h2>Dinâmica <span>prática</span></h2>
+    </div>
+    <div class="dynamics">
+      <h4>Análise de tirinhas</h4>
+      <ol>
+        <li>O professor projeta 2 tirinhas diferentes (uma humorística e uma crítica social).</li>
+        <li>Em grupos, os alunos devem identificar: ideia central, efeito de humor ou crítica e elementos visuais e verbais que constroem o sentido.</li>
+        <li>Depois, cada grupo apresenta suas análises.</li>
+        <li>A turma compara como diferentes gêneros visuais produzem efeitos distintos.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Slide final -->
+  <div class="slide" style="text-align:center; background: linear-gradient(135deg, #1e4a7a, #3a7bd5); color:#fff; border:none;">
+    <span class="slide-tag" style="background:rgba(255,255,255,0.2); color:#fff; align-self:center;">Fim do material</span>
+    <div class="slide-title" style="border-bottom-color: rgba(255,255,255,0.4); justify-content:center;">
+      <div class="icon">🎓</div>
+      <h2 style="color:#fff;">Parabéns! Você concluiu as <span style="background:none; -webkit-text-fill-color:#fff;">Aulas 1 a 8</span></h2>
+    </div>
+    <p class="lead" style="color:#e8f0fb;">
+      Agora você tem um arsenal completo de estratégias para interpretar textos em inglês no ENEM:
+      skimming, scanning, cognatos, conectores, ideia central, propósito comunicativo, textos
+      jornalísticos e tirinhas.
+    </p>
+    <p class="lead" style="color:#fff; font-weight:800; margin-top:1rem;">
+      Bons estudos e boa prova! 🚀
+    </p>
+  </div>
+
+</div>
+
+<button class="back-top" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Voltar ao topo">↑</button>
+
+<script>
+  const progressFill = document.getElementById('progressFill');
+  const slideCounter = document.getElementById('slideCounter');
+  const slides = document.querySelectorAll('.slide');
+
+  function updateProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressFill.style.width = percent + '%';
+
+    let visibleIndex = 0;
+    slides.forEach((slide, i) => {
+      const rect = slide.getBoundingClientRect();
+      if (rect.top <= window.innerHeight * 0.4) {
+        visibleIndex = i;
+      }
+    });
+    slideCounter.textContent = `Slide ${visibleIndex + 1} de ${slides.length}`;
+  }
+
+  window.addEventListener('scroll', updateProgress);
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+</script>
+
+</body>
+</html>
